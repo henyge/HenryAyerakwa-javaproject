@@ -1,0 +1,21 @@
+
+
+scalar Long
+
+type Product {
+    id: ID!
+    name: String!
+    stock: Int!
+    price: Float!
+}
+
+type Query {
+    findAllProducts: [Product]!
+    findProductById(id: Long): Product
+}
+
+type Mutation {
+    createProduct(name: String!, stock: Int!, price: Float!): Product!
+    updateProduct(id: ID!, name: String!, stock: Int!, price: Float!): Product!
+    deleteProduct(id: ID!): Boolean
+}

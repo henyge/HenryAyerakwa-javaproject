@@ -1,0 +1,13 @@
+
+
+scalar Long
+
+type ProductLine {
+    product: Product!
+    quantity: Int!
+    order: Order!
+}
+
+type Query {
+    findOrderedProducts(orderId: Long): ProductLine!
+}

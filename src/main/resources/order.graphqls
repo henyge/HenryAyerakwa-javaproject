@@ -1,0 +1,19 @@
+
+scalar Long
+
+type Order {
+    id: ID!
+    products: [ProductLine]!
+    user: User!
+}
+
+extend type Query {
+    findAllOrders: [Order]!
+    findOrderById(id: Long): Order
+}
+
+type Mutation {
+    createOrder(products: [ProductLine]!, userId: Long): Order!
+    updateOrder(id: ID!, products: [ProductLine]!): Order!
+    deleteOrder(id: ID!): Boolean
+}
