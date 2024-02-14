@@ -1,0 +1,22 @@
+version: '3'
+
+services:
+    javaproject:
+        image: 'henryayerakwajavaproject:1.0'
+        build:
+            context: .
+        container_name: HenryAyerakwa-javaproject
+        depends_on:
+            - h2memdb
+        environment:
+            - SPRING_DATASOURCE_URL=jdbc:h2:mem:mydb
+            - SPRING_DATASOURCE_USERNAME=sa
+            - SPRING_DATASOURCE_PASSWORD=password
+        ports:
+            - 9999:9999
+
+    h2memdb:
+        image: 'pilming/h2-db-1.4.200'
+        container_name: javaproject_db
+        ports:
+            - 9092:9092/tcp
